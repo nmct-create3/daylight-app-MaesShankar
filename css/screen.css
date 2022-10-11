@@ -1,14 +1,25 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
+@font-face {
+    font-family: "Work Sans";
+    font-weight: 400;
+    src: url("../fonts/WorkSans-VariableFont_wght.ttf") format("woff2");
+}
 
+@font-face {
+    font-family: "Work Sans";
+    font-weight: 600;
+    src: url("../fonts/WorkSans-VariableFont_wght.ttf") format("woff2")
+}
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
     /* colors */
-
+    --color-front:#CCE7FF;
+    --color-back:#0F3557;
     /* opacity */
 
     /* transitions */
@@ -27,10 +38,12 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: "Work Sans", sans-serif;
+    font-feature-settings: "zero" 1;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-front);
 }
 
 *,
@@ -47,13 +60,13 @@ html {
 */
 
 ::-moz-selection {
-    background: red;
+    background: blue;
     color: white;
     text-shadow: none;
 }
 
 ::selection {
-    background: red;
+    background: blue;
     color: white;
     text-shadow: none;
 }
@@ -241,6 +254,24 @@ input::placeholder {
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
+
+/*
+    Component: app
+    ---
+    Website app
+*/
+.c-app {
+   max-width: 400px;
+   max-height: 800px;
+   margin: auto;
+}
+
+.c-app_summary{
+    color: var(--color-back);
+    font-size: 28px;
+    line-height: 40px;
+
+}
 
 /*
     Component: Logo
