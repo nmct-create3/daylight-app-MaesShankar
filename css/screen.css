@@ -261,14 +261,13 @@ input::placeholder {
     Website app
 */
 .c-app {
-   max-width: 400px;
-   max-height: 800px;
+   width: 400px;
    margin: auto;
 }
 
 .c-app_summary{
     color: var(--color-back);
-    font-size: 28px;
+    font-size: 28px !important;
     line-height: 40px;
 
 }
@@ -280,7 +279,10 @@ input::placeholder {
 */
 
 .c-logo {
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16px;
 }
 
 /*
@@ -290,7 +292,10 @@ input::placeholder {
 */
 
 .c-sun {
-
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    color: var(--color-back);
 }
 
 .c-logo .c-sun {
@@ -302,13 +307,61 @@ input::placeholder {
     ---
     Main app wrapper
 */
-
+.c-bottom-page {
+    position: fixed;
+    bottom: 20px;
+}
 /*
     Component: Horizon
     ---
     Horizon with sun visualisation
 */
 
+.c-horizon__line{
+    width: 400px;
+    height: 1px;
+    margin: 0 0 24px;
+    display: flex;
+    border-top: solid 1px var(--color-back);
+    padding: 10px;
+
+    font-size: 12px;
+    color: var(--color-back); 
+    line-height: 14px;  
+}
+
+.c-horizon__sky-wrapper {
+    position: relative;
+    height: 200px;
+    padding-top: 22px;
+    padding-right: 40px;
+    overflow: hidden;
+}
+
+.c-horizon__sky {
+    position: relative;
+    height: 100%;
+}
+.c-horizon__sun {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    transform: translateY(22px);
+}
+.c-horizon__sun::before{
+    content: attr(data-time);
+    height: 14px;
+    margin-bottom: 8px;
+}
+.c-horizon__time{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
@@ -317,7 +370,9 @@ input::placeholder {
     Utilities: Mute
     Mute with opacity
 */
-
+.u-muted{
+    opacity: 0.5;
+}
 /*------------------------------------*\
 #STATES
 \*------------------------------------*/
@@ -327,6 +382,13 @@ input::placeholder {
 */
 
 /* Night version: just switch the light and dark vars */
+
+
+.is-night {
+   --color-front: var(--color-back);
+   --color-back: var(--color-front);
+   
+}
 
 /*------------------------------------*\
 #MEDIA
