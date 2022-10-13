@@ -261,14 +261,18 @@ input::placeholder {
     Website app
 */
 .c-app {
-   width: 400px;
-   margin: auto;
+   width: 400px !important;
+   margin: auto !important;
 }
 
-.c-app_summary{
+.c-app__summary{
     color: var(--color-back);
     font-size: 28px !important;
     line-height: 40px;
+
+}
+.c-app__location{
+    color: var(--color-back);
 
 }
 
@@ -283,6 +287,8 @@ input::placeholder {
     flex-direction: row;
     align-items: center;
     font-size: 16px;
+    fill: var(--color-back);
+    color: var(--color-back);
 }
 
 /*
@@ -295,7 +301,7 @@ input::placeholder {
     width: 22px;
     height: 22px;
     margin-right: 8px;
-    color: var(--color-back);
+    fill: var(--color-back);
 }
 
 .c-logo .c-sun {
@@ -308,8 +314,10 @@ input::placeholder {
     Main app wrapper
 */
 .c-bottom-page {
-    position: fixed;
+    position:fixed;
     bottom: 20px;
+    max-width: 400px;
+
 }
 /*
     Component: Horizon
@@ -318,13 +326,13 @@ input::placeholder {
 */
 
 .c-horizon__line{
-    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     height: 1px;
     margin: 0 0 24px;
-    display: flex;
     border-top: solid 1px var(--color-back);
     padding: 10px;
-
     font-size: 12px;
     color: var(--color-back); 
     line-height: 14px;  
@@ -355,11 +363,11 @@ input::placeholder {
     content: attr(data-time);
     height: 14px;
     margin-bottom: 8px;
+    fill: var(--color-back);
+    color: var(--color-back);
 }
 .c-horizon__time{
     display: flex;
-    width: 100%;
-    flex-direction: column;
     justify-content: space-between;
 }
 /*------------------------------------*\
@@ -385,8 +393,8 @@ input::placeholder {
 
 
 .is-night {
-   --color-front: var(--color-back);
-   --color-back: var(--color-front);
+   --color-front: #0F3557;
+   --color-back: #CCE7FF;
    
 }
 
