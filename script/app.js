@@ -59,27 +59,26 @@ let updateSun = (sunHTML, minutesSunUp, totalMinutes) => {
   sunHTML.style.left = `${percentage}%`;
   let percentageB;
   if (percentage > 50) {
-    percentageB = (100 - percentage)*2;
+    percentageB = (100 - percentage) * 2;
   } else {
-    percentageB = percentage*2;
+    percentageB = percentage * 2;
   }
   sunHTML.style.bottom = `${percentageB}%`;
-  if(percentageB>100 || percentageB<0){
+  if (percentageB > 100 || percentageB < 0) {
     document.querySelector('.is-day').classList.add('is-night');
-  }else{
+  } else {
     document.querySelector('.is-day').classList.remove('is-night');
   }
-  
-  //sunHTML.style.bottom berekenen 
-  sunHTML.dataset.time=_parseMillisecondsIntoReadableTime(Date.now()/1000);
-  
+
+  //sunHTML.style.bottom berekenen
+  sunHTML.dataset.time = _parseMillisecondsIntoReadableTime(Date.now() / 1000);
 };
 
 // 4 Zet de zon op de juiste plaats en zorg ervoor dat dit iedere minuut gebeurt.
-let placeSunAndStartMoving = (totalMinutes,sunrise) => {
+let placeSunAndStartMoving = (totalMinutes, sunrise) => {
   // In de functie moeten we eerst wat zaken ophalen en berekenen.
   // Haal het DOM element van onze zon op en van onze aantal minuten resterend deze dag.
-  const sunHTML=document.querySelector('.js-sun');
+  const sunHTML = document.querySelector('.js-sun');
   // Bepaal het aantal minuten dat de zon al op is.
   const minutesSunUp = Math.floor((Date.now() / 1000 - sunrise) / 60);
 
@@ -127,14 +126,14 @@ let showResult = function (jsonObject) {
   const timebetween = new Date(jsonObject.city.sunset) - Date.now() / 1000;
   const hours = Math.floor(timebetween / 3600);
   const minutes = Math.floor((timebetween % 3600) / 60);
-  if(hours > 0){
+  if (hours > 0) {
     document.querySelector('.js-time-left').innerHTML = `${hours} uur en ${minutes} minuten `;
-  }else{
+  } else {
     document.querySelector('.js-time-left').innerHTML = `${minutes} minuten`;
   }
 
-  const totalMinutes = Math.floor((new Date(jsonObject.city.sunset) - new Date(jsonObject.city.sunrise))/ 60);
-  placeSunAndStartMoving(totalMinutes,timerise);
+  const totalMinutes = Math.floor((new Date(jsonObject.city.sunset) - new Date(jsonObject.city.sunrise)) / 60);
+  placeSunAndStartMoving(totalMinutes, timerise);
 };
 // 2 Aan de hand van een longitude en latitude gaan we de yahoo wheater API ophalen.
 let getAPI = (lat, lon) => {
